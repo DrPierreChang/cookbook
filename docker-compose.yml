@@ -1,0 +1,31 @@
+version: '3.7'
+
+services:
+  web:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    command: >
+      sh -c "
+             python ./cookbook/manage.py makemigrations &&
+             python ./cookbook/manage.py migrate &&
+             python ./cookbook/manage.py loaddata name ingredients &&
+             python ./cookbook/manage.py runserver 0.0.0.0:8000"
+    volumes:
+      - ./cookbook/:/cookbook
+    ports:
+      - 8000:8000
+    env_file:
+      - ./.env.dev
+    depends_on:
+      - db
+  db:
+    image: postgres:14.0-alpine
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_USER=hello_django
+      - POSTGRES_PASSWORD=hello_django
+      - POSTGRES_DB=hello_django_dev
+volumes:
+  postgres_data:

@@ -60,6 +60,7 @@ django-admin startproject app
 python manage.py startapp cookbook
 ```
 
+# docker exec -ti cookbook_web_1 sh
 
 
 # Источники информации
@@ -145,3 +146,6 @@ YouTube
 - [Как использовать Django, PostgreSQL и Docker](
   https://webdevblog.ru/kak-ispolzovat-django-postgresql-i-docker/
   )
+  
+- [Gitignore for a Django project](
+  https://djangowaves.com/tips-tricks/gitignore-for-a-django-project/)
