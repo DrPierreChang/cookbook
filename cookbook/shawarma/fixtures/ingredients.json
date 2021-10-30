@@ -1,0 +1,170 @@
+[
+  {
+    "model": "shawarma.ingredient",
+    "pk": 1,
+    "fields": {
+      "name": "Лаваш тонкий"
+    }
+  },
+  {
+    "model": "shawarma.ingredient",
+    "pk": 2,
+    "fields": {
+      "name": "Куриное филе"
+    }
+  },
+  {
+    "model": "shawarma.ingredient",
+    "pk": 3,
+    "fields": {
+      "name": "Сыр твердый"
+    }
+  },
+  {
+    "model": "shawarma.ingredient",
+    "pk": 4,
+    "fields": {
+      "name": "Капуста белокочанная"
+    }
+  },
+  {
+    "model": "shawarma.ingredient",
+    "pk": 5,
+    "fields": {
+      "name": "Морковь по-корейски"
+    }
+  },
+  {
+    "model": "shawarma.ingredient",
+    "pk": 6,
+    "fields": {
+      "name": "Огурцы маринованные"
+    }
+  },
+  {
+    "model": "shawarma.ingredient",
+    "pk": 7,
+    "fields": {
+      "name": "Помидор свежий"
+    }
+  },
+  {
+    "model": "shawarma.ingredient",
+    "pk": 8,
+    "fields": {
+      "name": "Майонез"
+    }
+  },
+  {
+    "model": "shawarma.ingredient",
+    "pk": 9,
+    "fields": {
+      "name": "Сметана"
+    }
+  },
+  {
+    "model": "shawarma.ingredient",
+    "pk": 10,
+    "fields": {
+      "name": "Зелень свежая"
+    }
+  },
+  {
+    "model": "shawarma.ingredient",
+    "pk": 11,
+    "fields": {
+      "name": "Чеснок"
+    }
+  },
+  {
+    "model": "shawarma.ingredient",
+    "pk": 12,
+    "fields": {
+      "name": "Масло растительное"
+    }
+  },
+  {
+    "model": "shawarma.ingredient",
+    "pk": 13,
+    "fields": {
+      "name": "Паприка молотая"
+    }
+  },
+  {
+    "model": "shawarma.ingredient",
+    "pk": 14,
+    "fields": {
+      "name": "Перец кайенский"
+    }
+  },
+  {
+    "model": "shawarma.ingredient",
+    "pk": 15,
+    "fields": {
+      "name": "Перец кайенский"
+    }
+  },
+  {
+    "model": "shawarma.ingredient",
+    "pk": 16,
+    "fields": {
+      "name": "Чеснок сушеный гранулированный"
+    }
+  },
+  {
+    "model": "shawarma.ingredient",
+    "pk": 17,
+    "fields": {
+      "name": "Приправа для курицы"
+    }
+  },
+  {
+    "model": "shawarma.ingredient",
+    "pk": 18,
+    "fields": {
+      "name": "Перец чёрный молотый"
+    }
+  },
+  {
+    "model": "shawarma.ingredient",
+    "pk": 19,
+    "fields": {
+      "name": "Соль"
+    }
+  },
+  {
+    "model": "shawarma.ingredient",
+    "pk": 20,
+    "fields": {
+      "name": "Кетчуп"
+    }
+  },
+  {
+    "model": "shawarma.ingredient",
+    "pk": 21,
+    "fields": {
+      "name": "Огурец свежий"
+    }
+  },
+  {
+    "model": "shawarma.ingredient",
+    "pk": 22,
+    "fields": {
+      "name": "Крабовые палочки"
+    }
+  },
+  {
+    "model": "shawarma.ingredient",
+    "pk": 23,
+    "fields": {
+      "name": "Колбаса вареная"
+    }
+  },
+  {
+    "model": "shawarma.ingredient",
+    "pk": 24,
+    "fields": {
+      "name": "Сырок плавленый"
+    }
+  }
+]

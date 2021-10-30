@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'css/stylesheet.css'%}" type="text/css">
+    <script src="{% static 'js/main.js' %}"></script>
+</head>
+<div>
+    <img src="{% static 'images/header.png' %}" alt="Wisdom Pet Medicine" width="1200" >
+    <img src="{% static 'images/header2.jpg' %}" alt="Wisdom Pet Medicine" width="600" >
+</div>
+
+<body>
+<input class="myInput" type="text" id="myInput1" onkeyup="name_filter()" placeholder="Поиск по названию.." title="Введите название">
+<input class="myInput" type="text" id="myInput2" onkeyup="ingredient_filter()" placeholder="Поиск по ингредиенту.." title="Введите ингредиент">
+
+<table id="myTable">
+  <tr class="header">
+    <th style="width:30%;">Название</th>
+    <th style="width:35%;">Ингредиенты</th>
+    <th style="width:35%;">Описание</th>
+  </tr>
+  {% for shawarma in shawarmas %}
+    <tr>
+        <td>{{ shawarma.name }}</td>
+        <td>{{ shawarma.ingredients.all|join:", " }}</td>
+        <td>{{ shawarma.description }}</td>
+    </tr>
+    {% endfor %}
+</table>
+</body>
+</html>
