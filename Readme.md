@@ -73,15 +73,28 @@ python manage.py startapp cookbook
   )
   
 - [Quickstart: Compose and Django](https://docs.docker.com/samples/django/)
-
+- [Docker in DataGrip](https://www.jetbrains.com/help/datagrip/docker.html)
+- [docker rm](https://docs.docker.com/engine/reference/commandline/rm/)
+- [docker rmi](https://docs.docker.com/engine/reference/commandline/rmi/)
+- [Using the Django authentication system](
+  https://docs.djangoproject.com/en/1.8/topics/auth/default/
+  )
+  
 Книги
 
 - Использование Docker (Эдриен Моуэт)
 - Two Scoops Of Django 3
 
 StackOverflow
+- [Using Docker-Compose, how to execute multiple commands](
+  https://stackoverflow.com/questions/30063907/using-docker-compose-how-to-execute-multiple-commands
+  )
 - [docker-compose gives ERROR: Cannot locate specified Dockerfile: Dockerfile](
   https://stackoverflow.com/questions/36236491/docker-compose-gives-error-cannot-locate-specified-dockerfile-dockerfile
+  )
+  
+- [what's the difference between migrate and makemigrations?](
+  https://stackoverflow.com/questions/29980211/django-1-8-whats-the-difference-between-migrate-and-makemigrations
   )
   
 - [How do I get into a Docker container's shell?](
@@ -92,8 +105,16 @@ StackOverflow
   https://stackoverflow.com/questions/17236796/how-to-remove-old-docker-containers
   )
   
+- [How can I delete Docker's images?](
+  https://stackoverflow.com/questions/21398087/how-can-i-delete-dockers-images
+  )
+  
 - [How do i set two pictures on the same line using html and css?](
   https://stackoverflow.com/questions/61940802/how-do-i-set-two-pictures-on-the-same-line-using-html-and-css
+  )
+  
+- [How to automate createsuperuser on django?](
+  https://stackoverflow.com/questions/6244382/how-to-automate-createsuperuser-on-django
   )
 
 GitHub
@@ -149,3 +170,11 @@ YouTube
   
 - [Gitignore for a Django project](
   https://djangowaves.com/tips-tricks/gitignore-for-a-django-project/)
+  
+- [How to set up environment variables in Django](
+  https://alicecampkin.medium.com/how-to-set-up-environment-variables-in-django-f3c4db78c55f
+  )
+  
+- [Using Environment Variables In Django](
+  https://djangocentral.com/environment-variables-in-django/
+  )
