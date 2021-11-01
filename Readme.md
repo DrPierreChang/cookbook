@@ -291,9 +291,9 @@ YouTube
   
 Команда docker-compose up --build для запуска двух контейнров.
 
-Если ее использовать при первом запуске проекта, то сборка контейнера web стартует сразу после старта сборки контейнер db, и хотя инициализация db еще не закончилась, начинается миграция. Из-за этого  возникают ошибка.
+Если ее использовать при первом запуске проекта, то сборка контейнера web стартует сразу после старта сборки контейнер db, и хотя инициализация db еще не закончилась, начинается миграция. Из-за этого  возникает ошибка.
    
-Она описана на StackOverflow https://stackoverflow.com/questions/52355898/postgres-django-db-utils-operationalerror-could-not-connect-to-server-connecti
+Подробнее она описана на StackOverflow [тут](https://stackoverflow.com/questions/52355898/postgres-django-db-utils-operationalerror-could-not-connect-to-server-connecti)
 
 Самым простым решенимем оказался последовательный запуск сборки контейнеров
 
