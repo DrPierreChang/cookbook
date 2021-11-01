@@ -295,4 +295,4 @@ YouTube
    
 Самое простое решение предложено на StackOverflow [тут](https://stackoverflow.com/questions/52355898/postgres-django-db-utils-operationalerror-could-not-connect-to-server-connecti) - последовательный запуск сборки контейнеров
 
-Но возможно необходимо как-то перестроить логику обращения к базе данных
+Но возможно необходимо как-то перестроить логику взаимодействия контейнеров
