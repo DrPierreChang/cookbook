@@ -293,8 +293,6 @@ YouTube
 
 Если ее использовать при первом запуске проекта, то сборка контейнера web стартует сразу после старта сборки контейнер db, и хотя инициализация db еще не закончилась, начинается миграция. Из-за этого  возникает ошибка.
    
-Подробнее она описана на StackOverflow [тут](https://stackoverflow.com/questions/52355898/postgres-django-db-utils-operationalerror-could-not-connect-to-server-connecti)
-
-Самым простым решенимем оказался последовательный запуск сборки контейнеров
+Свмое простое решение предложено на StackOverflow [тут](https://stackoverflow.com/questions/52355898/postgres-django-db-utils-operationalerror-could-not-connect-to-server-connecti) - последовательный запуск сборки контейнеров
 
 Но возможно необходимо как-то перестроить логику обращения к базе данных
