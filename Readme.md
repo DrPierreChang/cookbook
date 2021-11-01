@@ -287,7 +287,7 @@ YouTube
   https://djangocentral.com/environment-variables-in-django/
   )
   
-  <h2>Что можно улучшить</h2>
+  <h2 align="center">Что можно улучшить</h2>
   
 Команда docker-compose up --build для запуска двух контейнров.
 
