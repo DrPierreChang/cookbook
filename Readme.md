@@ -1,11 +1,159 @@
-# Книга рецептов
-Веб-сайт, использующий фреймворк Django 3.
+<h1 align="center">Книга рецептов</h1>
 
-В панели управления (/admin) пользователь имеет возможность ввести:
+
+Веб-сайт, использующий фреймворк Django 3
+
+<img src="images/main_page.png" width=700>
+
+При первом запуске проекта необходимо последовательно воспользоваться двумя командами из корня репозитория
+
+ Первая собирает конейтнер с СУБД
+ 
+ ```bash
+ docker-compose up -d --build db
+ ```
+ 
+ Вторая собирает контейнер с веб-приложением
+ 
+ ```bash
+ docker-compose up -d --build web
+ ```
+ 
+ Для выполнеия команд внутри контейнера web, нужно выполнить команду.
+
+```shell
+docker-compose exec web sh
+```
+
+<p>В панели управления (/admin) пользователь имеет возможность ввести:</p>
 
 1. список ингредиентов для рецепта;
 
 2. добавить текст и название рецепта.
+
+Ингредиенты выбираются из списка, а не вводтся вручную, так как предпологается, что так база данных не будет засоряться разными или ошибочными названиями одних и тех же ингредиентов.
+Что может осложнять поиск.
+
+<img src="images/add_shawarma.png" width=1100>
+
+
+<p>В публичной части сайта пользователь имеет возможность просмотра введенных рецептов с выводом ингредиентов, с возможностью фильтрации по ингредиентам и названию рецепта.
+Учтено, что один ингредиент может встречаться в нескольких рецептах.</p>
+
+<div>
+    <p>Поиск по названию</p>
+    <img src="images/crab.png" width=900>
+    <p>Поиск по ингредиенту</p>
+    <img src="images/pepper.png" width=900>
+</div>
+
+В структуре проекта:
+
+- Разметка страницы содержится в файле home.html 
+
+```
+cookbook/shawarma/templates/home.html
+```
+
+- Стиль в stylesheet.css
+
+```
+cookbook/static/css/stylesheet.css
+```
+
+- Скрипт для фильтрации по названию и ингредиентам в main.js
+
+```
+cookbook/static/js/main.js
+```
+
+- Модели таблиц описаны в models.py
+
+```
+cookbook/shawarma/models.py
+```
+
+<img src="images/structure.png" width=900>
+
+
+Один ингредиеент может встречаться в нескольких рецептах, потому при описании моделей использована связь многие ко многим
+
+```python
+from django.db import models
+
+
+class Shawarma(models.Model):
+    name = models.CharField(max_length=100)
+    ingredients = models.ManyToManyField('Ingredient', blank=False)
+    description = models.TextField()
+
+
+
+class Ingredient(models.Model):
+    name = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.name
+```
+
+Благодаря такому подходу создается табица, в которой каждому рецепту соответствует отдельный ингредиент. Таким образом база данных приобретает третью нормальную форму
+
+<img src="images/db.png">
+
+</br>
+
+<p>При первом запуске проекта база данных наполняется данными благодаря миграции и добавлению фикстур.</p>
+
+<img src="images/fixtures.png" width=600>
+
+Такое поведение заложено в файле docker-compose.yml, который вместе с Dockerfile находятся в корне репозитория
+
+```python
+command: >
+      sh -c "
+             python ./cookbook/manage.py makemigrations &&
+             python ./cookbook/manage.py migrate &&
+             python ./cookbook/manage.py loaddata name ingredients &&
+             python ./cookbook/manage.py runserver 0.0.0.0:8000"
+```
+
+В качестве СУБД использована PostgreSQL 14
+
+```python
+db:
+    image: postgres:14.0-alpine
+    environment:
+      - POSTGRES_USER=hello_django
+      - POSTGRES_PASSWORD=hello_django
+      - POSTGRES_DB=cookbook_db
+    ports:
+      - 5432:5432
+```
+Веб-приложение запускается в отдельном контейнере после запуска контейнера с СУБД
+
+```python
+services:
+  web:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    command: >
+      sh -c "
+             python ./cookbook/manage.py makemigrations &&
+             python ./cookbook/manage.py migrate &&
+             python ./cookbook/manage.py loaddata name ingredients &&
+             python ./cookbook/manage.py runserver 0.0.0.0:8000"
+    volumes:
+      - ./cookbook/:/cookbook
+    ports:
+      - 8000:8000
+    env_file:
+      - ./.env.dev
+    depends_on:
+      - db
+```
+
+
 
 В публичной части сайта пользователь
 имеет возможность просмотра введенных рецептов
@@ -84,8 +232,13 @@ python manage.py startapp cookbook
 
 - Использование Docker (Эдриен Моуэт)
 - Two Scoops Of Django 3
+- Дэн Бейдер: Чистый Python. Тонкости программирования для профи
+
 
 StackOverflow
+- [Postgres django.db.utils.OperationalError: could not connect to server: Connection refused](
+    https://stackoverflow.com/questions/52355898/postgres-django-db-utils-operationalerror-could-not-connect-to-server-connecti
+)
 - [Using Docker-Compose, how to execute multiple commands](
   https://stackoverflow.com/questions/30063907/using-docker-compose-how-to-execute-multiple-commands
   )
@@ -109,6 +262,7 @@ StackOverflow
   https://stackoverflow.com/questions/21398087/how-can-i-delete-dockers-images
   )
   
+  
 - [How do i set two pictures on the same line using html and css?](
   https://stackoverflow.com/questions/61940802/how-do-i-set-two-pictures-on-the-same-line-using-html-and-css
   )
@@ -119,6 +273,7 @@ StackOverflow
 
 GitHub
 - [Каталог Книг](https://github.com/MNV/django-booklist)
+- [django_projects](https://github.com/DrPierreChang/django_projects)
 
 Хабр
 
